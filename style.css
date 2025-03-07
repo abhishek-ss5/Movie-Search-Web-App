@@ -82,3 +82,34 @@ button:hover {
     font-weight: bold;
 }
 
+
+
+
+@media(max-width: 520px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    #movie_detail {
+        width: 90%; /* Make it take more width on smaller screens */
+    }
+
+    input {
+        width: 90%; /* Adjust input width for better usability */
+    }
+
+    button {
+        width: 90%; /* Make button full width on small screens */
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+
+    #movie_detail img {
+        width: 80%;
+        display: block;
+        margin: 10px auto;
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+}
