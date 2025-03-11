@@ -1,28 +1,39 @@
 const APIKEY = "250958bd";
 
-async function showInfo(){
-    let searchValue = document.getElementById("search").value;
-    // console.log(searchValue);
+function showLoader() {
+  document.getElementById("loader").style.display = "block";
+}
 
-    try{
-        let url = `https://www.omdbapi.com/?apikey=${APIKEY}&t=${searchValue}`;
-        // let url = `https://www.omdbapi.com/?apikey=${APIKEY}&t=Queen`;
+function hideLoader() {
+  document.getElementById("loader").style.display = "none";
+}
 
-        let response = await fetch(url);
-        let jsonData = await response.json();
+async function showInfo() {
+  document.getElementById("movie_detail").style.display = "none";
 
-        if(jsonData.Title == undefined){
-            // console.log("This movie not found");
+  showLoader();
 
-            document.getElementById("movie_detail").innerHTML = `
+  let searchValue = document.getElementById("search").value;
+  // console.log(searchValue);
+
+  try {
+    let url = `https://www.omdbapi.com/?apikey=${APIKEY}&t=${searchValue}`;
+    // let url = `https://www.omdbapi.com/?apikey=${APIKEY}&t=Queen`;
+
+    let response = await fetch(url);
+    let jsonData = await response.json();
+
+    if (jsonData.Title == undefined) {
+      // console.log("This movie not found");
+
+      document.getElementById("movie_detail").innerHTML = `
             <h1>This Movie Not found !!<h1>
             <h3>Continue Searching...<h3>
             `;
-        }
-        else{
-            // console.log(jsonData);
+    } else {
+      // console.log(jsonData);
 
-            document.getElementById("movie_detail").innerHTML = `
+      document.getElementById("movie_detail").innerHTML = `
             <h1>${jsonData.Title}</h1>
             <img src="${jsonData.Poster}" alt="${jsonData.Title} Poster">
             <div id="Genre"><p>Genre:</p> ${jsonData.Genre}</div>
@@ -30,20 +41,20 @@ async function showInfo(){
             <div id="release"><p>Release Date:<p/> ${jsonData.Released}</div>
             <div id="plot"><p>Plot:</p> ${jsonData.Plot}</div>
             `;
-        }
-
-        document.getElementById("search").value = "";
     }
-    catch(error){
-        console.log(error);
 
-        document.getElementById("movie_detail").innerHTML = `
+    document.getElementById("search").value = "";
+  } catch (error) {
+    console.log(error);
+
+    document.getElementById("movie_detail").innerHTML = `
         <h1>Error in fetching the data !!</h1>
         <h3>${error}</h3>
         `;
 
-        document.getElementById("search").value = "";
-    }
+    document.getElementById("search").value = "";
+  } finally{
+    hideLoader();
+    document.getElementById("movie_detail").style.display = "block";
+  }
 }
-
-

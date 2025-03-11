@@ -1,115 +1,144 @@
 body {
-    font-family: Arial, sans-serif;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #f4f4f4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    color: #333;
+  color: #333;
 }
 
 div {
-    margin: 20px auto;
+  margin: 20px auto;
 }
 
 input {
-    padding: 10px;
-    width: 300px;
-    border: 2px solid #007bff;
-    border-radius: 5px;
-    font-size: 16px;
+  padding: 10px;
+  width: 300px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 button {
-    padding: 10px 15px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 #movie_detail {
-    background: white;
-    padding: 20px;
-    width: 50%;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: left;
+  background: white;
+  padding: 20px;
+  width: 50%;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: left;
 }
 
 #movie_detail img {
-    width: 250px;
+  width: 250px;
+  display: block;
+  margin: 10px auto;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+#movie_detail h1 {
+  color: #007bff;
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#movie_detail div {
+  color: #555;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+#movie_detail div span {
+  font-weight: bold;
+  color: #222;
+}
+
+#movie_detail p {
+  display: inline;
+  font-weight: bold;
+}
+
+/* #loader {
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+} */
+
+#loader {
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (max-width: 520px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #movie_detail {
+    width: 90%;
+  }
+
+  input {
+    width: 90%; 
+  }
+
+  button {
+    width: 90%;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  #movie_detail img {
+    width: 80%;
     display: block;
     margin: 10px auto;
     border-radius: 10px;
     margin-bottom: 30px;
-}
-
-#movie_detail h1 {
-    color: #007bff;
-    font-size: 28px;
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-#movie_detail div {
-    color: #555;
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-#movie_detail div span {
-    font-weight: bold;
-    color: #222;
-}
-
-#movie_detail p {
-    display: inline;
-    font-weight: bold;
-}
-
-
-
-
-@media(max-width: 520px) {
-    body {
-        font-size: 16px;
-        padding: 10px;
-    }
-
-    #movie_detail {
-        width: 90%; /* Make it take more width on smaller screens */
-    }
-
-    input {
-        width: 90%; /* Adjust input width for better usability */
-    }
-
-    button {
-        width: 90%; /* Make button full width on small screens */
-        margin-top: 10px;
-        margin-left: 0px;
-    }
-
-    #movie_detail img {
-        width: 80%;
-        display: block;
-        margin: 10px auto;
-        border-radius: 10px;
-        margin-bottom: 30px;
-    }
+  }
 }
